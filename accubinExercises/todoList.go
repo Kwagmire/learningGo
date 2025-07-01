@@ -45,6 +45,7 @@ func (list *MyToDo) addTask() {
 	id := len(*list)
 	idString := strconv.Itoa(id)
 	(*list)[idString] = &task
+	(*list).viewList()
 	//return &Task, nil
 }
 
@@ -59,6 +60,7 @@ func (list *MyToDo) delTask() bool {
 		return false
 	}
 	delete(*list, input)
+	(*list).viewList()
 	return true
 }
 
@@ -77,6 +79,7 @@ func (list *MyToDo) completeTask() bool {
 	}
 
 	(*list)[input].status = "complete"
+	(*list).viewList()
 	return true
 }
 
